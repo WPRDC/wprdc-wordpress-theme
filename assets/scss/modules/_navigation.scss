@@ -9,7 +9,9 @@
   @include show-for(medium);
 }
 
-
+.top-bar-right {
+  vertical-align: bottom;
+}
 
 // Site title
 .site-mobile-title a {
@@ -20,13 +22,23 @@
   font-weight: bold;
 }
 
+.site-title-logo {
+  margin: 0 5px;
+  padding: 0;
+  //border: 1px solid red; // todo: remove
+  height: 2.3rem;
+}
 
+.site-title {
+  font-size: ($top-bar-font-size + 2pt);
+  color: $wprdc-gray;
+  vertical-align: bottom;
+}
 
 // Mobile menu
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
 }
-
 
 .mobile-menu,
 .mobile-off-canvas-menu {
@@ -34,10 +46,10 @@
   // submenu arrow
   .is-accordion-submenu-parent {
     > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
+      border-color: $wprdc-yellow transparent transparent;
     }
     &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
+      border-color: $wprdc-yellow transparent transparent;
     }
   }
 
@@ -47,18 +59,25 @@
   }
 }
 
-
-
 // Tablet and desktop menu
 .desktop-menu {
-
+  .top-bar-right {
+    vertical-align: bottom;
+  }
+  a {
+    color: $wprdc-yellow;
+    font-size: $top-bar-font-size;
+    &:after {
+      border-color: $wprdc-yellow transparent transparent !important; // TODO: not use important here
+    }
+  }
   // submenu arrow
   li.is-dropdown-submenu-parent {
     > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
+      border-color: $wprdc-yellow transparent transparent;
     }
     &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
+      border-color: $wprdc-yellow transparent transparent;
     }
   }
 }
@@ -69,17 +88,15 @@
   }
 }
 
-
-
 // WP post navigation
 .post-navigation {
   @include clearfix;
 }
 
 .nav-previous {
-  float:left;
+  float: left;
 }
 
 .nav-next {
-  float:right;
+  float: right;
 }

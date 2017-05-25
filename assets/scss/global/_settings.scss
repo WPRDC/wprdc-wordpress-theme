@@ -250,9 +250,9 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: $wprdc-black;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
+$button-color: $wprdc-yellow;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
@@ -353,7 +353,7 @@ $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
-$dropdownmenu-border: 1px solid $medium-gray;
+$dropdownmenu-border: 1px solid $wprdc-gray;
 
 // 19. Forms
 // ---------
@@ -595,11 +595,11 @@ $thumbnail-radius: $global-radius;
 // 35. Title Bar
 // -------------
 
-$titlebar-background: $light-gray;
-$titlebar-color: $body-font-color;
+$titlebar-background: $wprdc-black;
+$titlebar-color: $wprdc-gray;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: $body-font-color;
+$titlebar-icon-color: $wprdc-gray;
 $titlebar-icon-color-hover: $black;
 $titlebar-icon-spacing: 0.25rem;
 
@@ -619,9 +619,11 @@ $tooltip-radius: $global-radius;
 // 37. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
+$topbar-padding: 0.01rem;
 $topbar-background: $wprdc-black;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
+
+$top-bar-font-size: 18pt;

@@ -1,90 +1,53 @@
 // Page header
 .front-hero {
-  .marketing {
-    @include grid-row();
-    max-width: 55rem;
-  }
-
   @include breakpoint(small) {
-    background: url('../images/header-large.png') bottom center;
     background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
+    padding: rem-calc(10%) 0;
     margin: 0 0 rem-calc(32);
     height: auto;
     position: relative;
     text-align: left;
   }
 
-
   @include breakpoint(medium) {
-    background: url('../images/header-xlarge.png') bottom center;
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(685);
+    background-color: $wprdc-white;
+
+    border-bottom: 2px solid $wprdc-black;
     margin: 0 0 rem-calc(72);
   }
 
-  .watch {
-    @include breakpoint(small) {
-      @include grid-column(7);
-      @include grid-column-position(-5);
-    }
+  .marketing {
+    @include grid-row();
 
-    @include breakpoint(medium) {
-      @include grid-column(12);
-      @include grid-column-position(0);
-    }
+    .search-zone {
 
-    section {
-      display: inline;
-    }
+      //border: 1px solid blue; // todo: just for reference
 
-    a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
-      margin-right: rem-calc(20);
-    }
-
-    a:hover {
-      color: #fff;
-    }
-
-    .stargazers {
-      :before {
-        content: "\f09b";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
+      @include breakpoint(small) {
+        @include grid-column(6);
       }
-    }
 
-    .twitter {
-      :before {
-        content: "\f099";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
+      @include breakpoint(medium) {
+        @include grid-column(7);
       }
+
+      .searchbar {
+        margin-top: 5rem;
+      }
+
     }
 
-  }
+    .showcase-zone {
+      border-left: 2px solid $wprdc-black;  // todo: replace with custom divider
+      //border: 1px solid green; // todo: just for reference
 
-  .tagline {
-    @include breakpoint(small) {
-      @include grid-column(8);
-    }
+      @include breakpoint(small) {
+        @include grid-column(6);
+      }
 
-    @include breakpoint(medium) {
-      @include grid-column(5);
-      padding-top: 6rem;
+      @include breakpoint(medium) {
+        @include grid-column(5);
+      }
     }
   }
 
@@ -151,7 +114,6 @@
   }
 }
 
-
 // Benefits
 .benefits {
   @include grid-row();
@@ -204,4 +166,8 @@
     @include grid-column(12);
     margin-top: 4rem;
   }
+}
+
+.material-icons.search-icon{
+    font-weight:800;
 }
