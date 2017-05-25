@@ -32,5 +32,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	}
 
+	wp_enqueue_style('material-icons',"https://fonts.googleapis.com/icon?family=Material+Icons",array(),"", 'all');
+
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
