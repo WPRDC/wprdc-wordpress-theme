@@ -18,6 +18,9 @@
 				<?php do_action( 'foundationpress_after_footer' ); ?>
 			</footer>
 		</div>
+        <div class="subfooter">
+            <p class="text-center" style="margin: 0">&copy; 2017 University of Pittsburgh</p>
+        </div>
 
 		<?php do_action( 'foundationpress_layout_end' ); ?>
 

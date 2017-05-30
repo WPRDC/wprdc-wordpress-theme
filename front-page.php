@@ -5,7 +5,7 @@ Template Name: Front
 get_header(); ?>
 
     <!-- Where the search and showcase will live -->
-    <header class="front-hero" role="banner">
+    <section class="front-hero" role="banner">
         <div class="marketing" data-equalizer data-equalize-on="medium" id="main-panel-eq">
 
             <div class="search-zone" data-equalizer-watch>
@@ -26,11 +26,40 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Blog, Newsletter, Events, Twitter -->
     <section class="outreach-stuff">
+        <div class="news medium-3 columns">
+            <div class="callout">
+                <p class="text-center">News</p>
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+        </div>
+        <div class="blog medium-3 columns">
+            <div class="callout ">
 
+                <p class="text-center">Blog</p>
+
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+        </div>
+        <div class="events medium-3 columns">
+            <div class="callout">
+
+                <p class="text-center">Events</p>
+
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+        </div>
+        <div class="twitter medium-3 columns">
+            <div class="callout">
+
+                <p class="text-center">Twitter</p>
+
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+        </div>
     </section>
 
     <div class="section-divider">
@@ -39,7 +68,27 @@ get_header(); ?>
 
     <!-- Guides, Tutorials, Tools -->
     <section class="technical-stuff">
-        <p> this is a change!</p>
+        <div class="tutorials medium-4 columns">
+            <div class="callout">
+                <p class="text-center">Tutorials</p>
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+        </div>
+        <div class="tools medium-4 columns">
+            <div class="callout">
+                <p class="text-center">Tools</p>
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+
+        </div>
+        <div class="stuff medium-4 columns">
+            <div class="callout">
+
+                <p class="text-center">Stuff</p>
+                <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+            </div>
+
+        </div>
     </section>
 
 <?php get_footer();
