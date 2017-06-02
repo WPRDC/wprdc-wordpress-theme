@@ -24,7 +24,7 @@
       //border: 1px solid blue; // todo: just for reference
 
       @include breakpoint(small) {
-        @include grid-column(6);
+        @include grid-column(12);
       }
 
       @include breakpoint(medium) {
@@ -34,20 +34,34 @@
       .searchbar {
         margin-top: 5rem;
       }
-
+      .searchbar-comment {
+        @include breakpoint(small){
+          display: none;
+        }
+        padding: 0 6rem 0 2rem;
+        p {
+          color: $dark-gray;
+        }
+      }
     }
 
     .showcase-zone {
-      border-left: 2px solid $wprdc-black;  // todo: replace with custom divider
-      //border: 1px solid green; // todo: just for reference
-
       @include breakpoint(small) {
-        @include grid-column(6);
+        @include grid-column(12);
       }
 
       @include breakpoint(medium) {
+        border-left: 2px solid $wprdc-black; // todo: replace with custom divider
         @include grid-column(5);
+        .orbit-container{
+          width: 250px;
+        }
+        .orbit-image {
+          height: 250px;
+          width: 250px;
+        }
       }
+      
     }
   }
 
@@ -75,7 +89,6 @@
   }
 }
 
-
 // Section divider
 .section-divider {
   @include grid-row();
@@ -87,12 +100,12 @@
   }
 }
 
-.material-icons.search-icon{
-    font-weight:800;
+.material-icons.search-icon {
+  font-weight: 800;
 }
 
 // Outreach Stuff - middle row
-.outreach-stuff{
+.outreach-stuff {
   @include grid-row();
 
   .callout {
@@ -105,4 +118,9 @@
 // Tech stuff - bpttpm row
 .technical-stuff {
   @include grid-row();
+}
+
+.clip-hexagon {
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }

@@ -3,6 +3,8 @@
 Template Name: Front
 */
 get_header(); ?>
+    <!-- This demo uses flex grid but you can use float grid too -->
+
 
     <!-- Where the search and showcase will live -->
     <section class="front-hero" role="banner">
@@ -16,14 +18,51 @@ get_header(); ?>
                         <button type="button" class="button"><i class="material-icons search-icon">&#xE8B6;</i></button>
                     </div>
                 </div>
+                <div class="searchbar-comment">
+                    <p>You can search a whole bunch of crap: dog's, murders, potholes - and that's just to name a
+                        few</p>
+                    <?php if ($response = ckan_api_get("action/package_search")) : ?>
+                        <p>In fact,
+                            there <?php echo($response->count > 1 ? 'are' : 'is'); ?> currently
+                            <b><?php echo $response->count; ?>
+                                dataset<?php echo($response->count > 1 ? 's' : ''); ?></b>, and we're adding more all
+                            the time!</p>
+                    <?php endif; ?>
+                </div>
 
             </div>
+            <div class="orbit showcase-zone" role="region" aria-label="Showcase" data-orbit>
+                <ul class="orbit-container">
+                    <?php if ($posts = wp_get_recent_posts(array('numberposts' => 10, 'category' => get_cat_ID('showcase')), OBJECT)) : ?>
+                        <?php $slide_count = 0;?>
+                        <?php foreach ($posts as $post) : ?>
+                            <?php if (has_post_thumbnail()) : ?>
+                                <li  class="<?php if (!$slide_count) {echo 'is-active ';};?> orbit-slide">
+                                    <a href="
+                                                <?php echo get_permalink($post->ID); ?>">
+                                        <div class="panel">
+                                            <img class="orbit-image clip-hexagon" src="<?php the_post_thumbnail_url()?>" alt="<?php get_the_title()?>"
+                                        </div>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif;?>
+                </ul>
+                <nav class="orbit-bullets">
+                    <?php if ($posts = wp_get_recent_posts(array('numberposts' => 10, 'category' => get_cat_ID('showcase')), OBJECT)) : ?>
+                        <?php $slide_count = 0;?>
+                        <?php foreach ($posts as $post) : ?>
+                            <?php if (has_post_thumbnail()) : ?>
 
-            <div class="showcase-zone" data-equalizer-watch>
-                <!-- Showcase -->
-                <div class="showcase-holder ">
-                    <img src="http://placehold.it/480x320" style="display:block; margin:auto;"/>
-                </div>
+                                <button <?php if (!$slide_count) {echo 'class="is-active" ';};?>data-slide=<?php echo $slide_count;?>>
+                                    <span class="show-for-sr">First slide details.</span><span class="show-for-sr"></span></button>
+                                <?php $slide_count++;?>
+
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif;?>
+                </nav>
             </div>
         </div>
     </section>
