@@ -11,6 +11,7 @@
 
 .top-bar-right {
   vertical-align: bottom;
+  height: 100%;
 }
 
 // Site title
@@ -22,17 +23,18 @@
   font-weight: bold;
 }
 
+
 .site-title-logo {
   margin: 0 5px;
   padding: 0;
-  //border: 1px solid red; // todo: remove
-  height: 2.3rem;
+  height: 30px;
 }
 
 .site-title {
-  font-size: ($top-bar-font-size + 2pt);
   color: $wprdc-gray;
-  vertical-align: bottom;
+  vertical-align: middle;
+  font-size: rem-calc(20pt);
+  font-weight: 500;
 }
 
 // Mobile menu
@@ -58,15 +60,16 @@
     font-weight: bold;
   }
 }
-
+.top-bar-right {
+  padding-top: 2px;
+  vertical-align: bottom;
+}
 // Tablet and desktop menu
 .desktop-menu {
-  .top-bar-right {
-    vertical-align: bottom;
-  }
+
   a {
     color: $wprdc-yellow;
-    font-size: $top-bar-font-size;
+    font-size: 12pt !important;
     &:after {
       border-color: $wprdc-yellow transparent transparent !important; // TODO: not use important here
     }
