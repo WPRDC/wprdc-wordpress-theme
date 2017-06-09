@@ -53,3 +53,16 @@ require_once( 'library/responsive-images.php' );
 
 /** Interface with CKAN instance */
 require_once( 'library/ckan.php' );
+
+/** Twitter class */
+require_once( 'library/twitter.php' );
+
+/** Theme Settings */
+require_once( 'library/theme-settings.php');
+
+function theme_settings_add_page()
+{
+    new ThemeSettings();
+}
+
+add_action('admin_menu', 'theme_settings_add_page');

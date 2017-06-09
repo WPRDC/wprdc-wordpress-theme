@@ -1,4 +1,7 @@
 // Page header
+
+$hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwMCAyMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjEzLjQ5OSw0OS44NzYgOTkuODg3LDAgMTg2LjI4NCw0OS44NzkgMTg2LjI4NCwxNDkuNjM1IDk5Ljg4NywxOTkuNTE2IDEzLjQ5OSwxNDkuNjMgIi8+Cjwvc3ZnPg==";
+
 .front-hero {
   @include breakpoint(small) {
     background-size: cover;
@@ -10,10 +13,10 @@
   }
 
   @include breakpoint(medium) {
-    background-color: $wprdc-white;
+    background-color: $wprdc-black;
 
-    border-bottom: 2px solid $wprdc-black;
-    margin: 0 0 rem-calc(10%) 0;
+    border-top: 1px solid $wprdc-gray;
+    margin: 0 0 0 0;
   }
 
   .marketing {
@@ -21,26 +24,28 @@
 
     .search-zone {
 
-      //border: 1px solid blue; // todo: just for reference
-
       @include breakpoint(small) {
         @include grid-column(12);
       }
 
       @include breakpoint(medium) {
-        @include grid-column(7);
+        @include grid-column(8);
+
       }
 
       .searchbar {
         margin-top: 5rem;
       }
       .searchbar-comment {
-        @include breakpoint(small){
+        @include breakpoint(small down) {
           display: none;
         }
         padding: 0 6rem 0 2rem;
         p {
+          font-size: rem-calc(14pt);
+          font-style: italic;
           color: $dark-gray;
+          margin-bottom: rem-calc(6pt);
         }
       }
     }
@@ -51,17 +56,37 @@
       }
 
       @include breakpoint(medium) {
-        border-left: 2px solid $wprdc-black; // todo: replace with custom divider
-        @include grid-column(5);
-        .orbit-container{
-          width: 250px;
+        border-left: 2px solid $wprdc-gray; // todo: replace with custom divider
+        @include grid-column(4);
+        .orbit-container {
+          .panel {
+            margin: 10px auto 0 auto;
+            width: 320px;
+            height: 240px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            border-radius: 6px;
+
+            .showcase-title-container {
+              padding-top: 60px;
+            }
+            .showcase-title {
+              display: block;
+              font-weight: 600;
+              font-size: rem-calc(18pt);
+              vertical-align: middle;
+              background: rgba(0, 0, 0, .4);
+              color: $white;
+              margin: 0 0;
+            }
+          }
         }
         .orbit-image {
-          height: 250px;
-          width: 250px;
+
         }
       }
-      
+
     }
   }
 
@@ -105,19 +130,59 @@
 }
 
 // Outreach Stuff - middle row
-.outreach-stuff {
-  @include grid-row();
+.front-content-container {
+  background: $white;
+  padding-top: rem-calc(10%);
 
   .callout {
-    color: $wprdc-yellow;
-    background-color: $wprdc-black;
+    border-radius: (6px);
   }
 
-}
+  .outreach-stuff {
+    @include grid-row();
 
-// Tech stuff - bpttpm row
-.technical-stuff {
-  @include grid-row();
+    .callout {
+      position: relative;
+      color: $wprdc-gray;
+      background-color: $wprdc-black;
+
+
+      .logo {
+        color: $wprdc-yellow;
+        position: absolute;
+        top: 5px;
+        right: 3px;
+      }
+
+      .icon {
+        font-size: 16pt;
+        top: 0;
+      }
+
+
+      .tweets-orbit {
+        max-height: 120px;
+        overflow: hidden;
+        font-size: rem-calc(12pt);
+        a {
+          color: $wprdc-yellow;
+        }
+      }
+    }
+
+  }
+
+  // Tech stuff - bpttpm row
+  .technical-stuff {
+    @include grid-row();
+
+    .callout {
+      position: relative;
+      color: $wprdc-yellow;
+      background-color: $wprdc-white;
+      border-radius: (6px);
+    }
+  }
 }
 
 .clip-hexagon {
