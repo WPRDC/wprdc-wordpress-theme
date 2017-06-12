@@ -1,4 +1,7 @@
 // Page header
+body {
+  background-color: $wprdc-white;
+}
 
 $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwMCAyMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjEzLjQ5OSw0OS44NzYgOTkuODg3LDAgMTg2LjI4NCw0OS44NzkgMTg2LjI4NCwxNDkuNjM1IDk5Ljg4NywxOTkuNTE2IDEzLjQ5OSwxNDkuNjMgIi8+Cjwvc3ZnPg==";
 
@@ -53,19 +56,37 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
     .showcase-zone {
       @include breakpoint(small) {
         @include grid-column(12);
+        .panel {
+          margin: 0 auto 0 auto;
+          width: 320px;
+          height: 240px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 6px;
+
+        }
+        .showcase-title {
+          display: block;
+          font-weight: 600;
+          font-size: rem-calc(18pt);
+          vertical-align: middle;
+          background: rgba(0, 0, 0, .4);
+          color: $white;
+          margin: 0 0;
+        }
       }
 
       @include breakpoint(medium) {
         border-left: 2px solid $wprdc-gray; // todo: replace with custom divider
         @include grid-column(4);
+
         .orbit-container {
           .panel {
-            margin: 10px auto 0 auto;
+            margin: 0 auto 0 auto;
             width: 320px;
             height: 240px;
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: 50% 50%;
             border-radius: 6px;
 
             .showcase-title-container {
@@ -131,21 +152,35 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 
 // Outreach Stuff - middle row
 .front-content-container {
-  background: $white;
+  background: $wprdc-white;
   padding-top: rem-calc(10%);
 
   .callout {
-    border-radius: (6px);
+    border-radius: 6px;
+    padding-top: rem-calc(24pt)
   }
 
   .outreach-stuff {
+    font-size: rem-calc(12pt);
     @include grid-row();
+    a {
+      color: $wprdc-yellow;
+    }
 
     .callout {
       position: relative;
       color: $wprdc-gray;
       background-color: $wprdc-black;
-
+      .post-line {
+        padding: rem-calc(5px) 0;
+        p{
+          margin: 0;
+        }
+          border-bottom: 1px solid dimgray;
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
 
       .logo {
         color: $wprdc-yellow;
@@ -159,14 +194,10 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
         top: 0;
       }
 
-
       .tweets-orbit {
         max-height: 120px;
         overflow: hidden;
-        font-size: rem-calc(12pt);
-        a {
-          color: $wprdc-yellow;
-        }
+
       }
     }
 
@@ -188,4 +219,16 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 .clip-hexagon {
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.data-alert {
+  margin-top: 2rem;
+  i {
+    color: red;
+    margin-right: 1rem;
+  }
+  span {
+    vertical-align: top;
+    color: $wprdc-yellow;
+  }
 }

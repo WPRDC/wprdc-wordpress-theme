@@ -3,16 +3,24 @@
   width: 100%;
   margin: 0 auto;
   border-top: 1px solid $medium-gray;
-  margin-top: rem-calc(60);
+  color: $wprdc-black;
+  background-color: $wprdc-gray;
 }
 
 .footer {
   @include grid-row();
-  padding: rem-calc(30) 0;
+  padding: rem-calc(15) 0;
+
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
+}
+
+
+.subfooter {
+  background-color: $wprdc-black;
+  color: $wprdc-gray
 }

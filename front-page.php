@@ -30,6 +30,9 @@ get_header(); ?>
                                 dataset<?php echo($response->count > 1 ? 's' : ''); ?></b>, and we're adding more all
                             the time!</p>
                     <?php endif; ?>
+                    <p class="data-alert">
+                        <i class="material-icons ">warning</i><span>Holy crap! There's new data!  -- this is where new data alerts go --</span>
+                    </p>
                 </div>
             </div>
 
@@ -85,7 +88,23 @@ get_header(); ?>
             <div class="news medium-3 columns">
                 <div class="callout" data-equalizer-watch="outreach">
                     <i class="logo material-icons">markunread_mailbox</i>
-                    <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+                    <?php if ($posts = wp_get_recent_posts(array('post_status' => 'publish', 'numberposts' => 3, 'category__not_in' => get_cat_ID('showcase')), OBJECT)) : ?>
+                        <?php foreach ($posts as $post) : ?>
+                            <div class="post-line">
+                                <p>
+                                    <a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
+                        <div class="post-line">
+                            <p><a href="<?php # echo get_category_link(get_category_by_slug( 'news' )->term_id);?>">More...</a>
+                            </p>
+                        </div>
+                    <?php else : ?>
+                        <div id="no-posts">
+                            <p>Nothing has been posted yet.</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="blog medium-3 columns">
@@ -100,22 +119,38 @@ get_header(); ?>
                 <div class="callout" data-equalizer-watch="outreach">
 
                     <i class="logo material-icons">event</i>
-
-                    <img src="http://placehold.it/200x120" style="display:block; margin:auto;"/>
+                    <div class="events-orbit" data-orbit="events-orbit">
+                        <ul class="orbit-container" data-timer-delay="2000">
+                            <?php if ($events = tribe_get_events(array('posts_per_page' => 5, 'start_date' => date('Y-m-d H:i:s')))): ?>
+                                <?php foreach ($events as $event) : ?>
+                                    <li class="orbit-slide">
+                                        <div>
+                                            <h5><a href="<?php echo get_permalink($event); ?>"><?php echo $event->post_title; ?></a></h5>
+                                            <p><?php echo tribe_get_start_date($event, true, "F j, Y, g:i a"); ?></p>
+                                            <p><?php echo wp_trim_words($event->post_content, 20); ?></p>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <li><p>An issue has occurred retrieving the latest events.</p></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="twitter medium-3 columns">
                 <div class="callout" data-equalizer-watch="outreach">
 
                     <i class="logo icon ion-social-twitter"></i>
-                    <div class="tweets-orbit" data-orbit>
-                        <ul class="orbit-container" data-timer-delay="500">
+                    <div class="tweets-orbit" data-orbit="tweets-orbit">
+                        <ul class="orbit-container" data-timer-delay="1000">
                             <?php if ($tweets = Twitter::getTweets()) : ?>
                                 <?php foreach ($tweets as $tweet) : ?>
                                     <li class="orbit-slide">
                                         <div>
                                             <p><?php echo $tweet; ?></p>
-                                        </div></li>
+                                        </div>
+                                    </li>
                                 <?php endforeach; ?>
                             <?php else : ?>
                                 <li><p>An issue has occurred retrieving the latest tweets.</p></li>
