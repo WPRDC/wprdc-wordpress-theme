@@ -117,6 +117,12 @@ class ThemeSettings {
                 <?php $this->theme_settings_form_text('API Key','mailchimp_api','abc123abc123abc123abc123abc123',55); ?>
                 <?php $this->theme_settings_form_text('List ID','mailchimp_list','b1234346',55); ?>
             </table>
+
+            <h2>Data Alerts</h2>
+            <table class="form-table">
+                <?php $this->theme_settings_form_text('Alert Text','alert_text','Check it out! New dog license data!',100); ?>
+                <?php $this->theme_settings_form_text('Alert Link','alert_url','url.to/dog-licenses',55); ?>
+            </table>
             <p>
                 <input type="submit" value="Save Settings" class="button-primary"/>
             </p>

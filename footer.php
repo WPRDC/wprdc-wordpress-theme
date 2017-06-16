@@ -12,12 +12,12 @@
 
 		</section>
 		<div class="footer-container" data-sticky-footer>
-			<footer class="footer">
-				<?php do_action( 'foundationpress_before_footer' ); ?>
-				<?php dynamic_sidebar( 'footer-widgets' ); ?>
-
-				<?php do_action( 'foundationpress_after_footer' ); ?>
-			</footer>
+<!--			<footer class="footer">-->
+<!--				--><?php //do_action( 'foundationpress_before_footer' ); ?>
+<!--				--><?php //dynamic_sidebar( 'footer-widgets' ); ?>
+<!---->
+<!--				--><?php //do_action( 'foundationpress_after_footer' ); ?>
+<!--			</footer>-->
             <div class="subfooter">
                 <p class="text-center" style="margin: 0">&copy; 2017 University of Pittsburgh</p>
             </div>

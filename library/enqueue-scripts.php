@@ -32,6 +32,10 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	}
 
+	wp_enqueue_script('sparkline', get_template_directory_uri() . '/assets/javascript/jquery.sparkline.min.js', array('jquery'), '2.1.2', true);
+
+    wp_enqueue_script('app', get_template_directory_uri() . '/assets/javascript/app.js', array('sparkline'), '0.0.1', true);
+
     // Icons, Google fonts , etc
 	wp_enqueue_style('material-icons','https://fonts.googleapis.com/icon?family=Material+Icons',array(),'', 'all');
 	wp_enqueue_style('google-fonts','https://fonts.googleapis.com/css?family=Open+Sans' ,array(),'', 'all');

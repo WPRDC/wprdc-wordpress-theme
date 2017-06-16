@@ -58,7 +58,7 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
         @include grid-column(12);
         .panel {
           margin: 0 auto 0 auto;
-          width: 320px;
+          width: 240px;
           height: 240px;
           background-size: cover;
           background-repeat: no-repeat;
@@ -84,7 +84,7 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
           .panel {
             margin: 0 auto 0 auto;
             width: 320px;
-            height: 240px;
+            height: 280px;
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 6px;
@@ -136,14 +136,15 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 }
 
 // Section divider
-.section-divider {
-  @include grid-row();
-  box-sizing: content-box;
-  hr {
-    @extend .dotted;
+.section-divider-container {
+  background: $white;
+  .section-divider {
+    @include grid-row();
     box-sizing: content-box;
-    margin: rem-calc(5%) 0;
+    margin-top: rem-calc(10%);
+    //border-top: 1px solid $wprdc-black;
   }
+
 }
 
 .material-icons.search-icon {
@@ -151,17 +152,12 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 }
 
 // Outreach Stuff - middle row
-.front-content-container {
+.outreach-container {
   background: $wprdc-white;
   padding-top: rem-calc(10%);
 
-  .callout {
-    border-radius: 6px;
-    padding-top: rem-calc(24pt)
-  }
-
   .outreach-stuff {
-    font-size: rem-calc(12pt);
+    font-size: rem-calc(14pt);
     @include grid-row();
     a {
       color: $wprdc-yellow;
@@ -169,14 +165,12 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 
     .callout {
       position: relative;
-      color: $wprdc-gray;
-      background-color: $wprdc-black;
       .post-line {
         padding: rem-calc(5px) 0;
-        p{
+        p {
           margin: 0;
         }
-          border-bottom: 1px solid dimgray;
+        border-bottom: 1px solid dimgray;
         &:last-child {
           border-bottom: 0;
         }
@@ -187,6 +181,11 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
         position: absolute;
         top: 5px;
         right: 3px;
+      }
+
+      .bottom-note {
+        position: absolute;
+        bottom: 10px;
       }
 
       .icon {
@@ -202,10 +201,15 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
     }
 
   }
+}
 
+.technical{
+  background-color: $wprdc-gray;
   // Tech stuff - bpttpm row
   .technical-stuff {
     @include grid-row();
+
+    padding-top: rem-calc(20px);
 
     .callout {
       position: relative;
@@ -217,10 +221,9 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 }
 
 .clip-hexagon {
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
 }
-
 .data-alert {
   margin-top: 2rem;
   i {
@@ -231,4 +234,16 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
     vertical-align: top;
     color: $wprdc-yellow;
   }
+}
+
+.event {
+  .event-title {
+    font-size: rem-calc(16pt);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  .event-date {
+    font-style: italic;
+  }
+
 }
