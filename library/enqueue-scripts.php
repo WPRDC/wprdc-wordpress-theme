@@ -27,14 +27,14 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	// Add the comment-reply library on pages where it is necessary
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+			wp_enqueue_script( 'comment-reply' );
 	}
 
 	}
 
-	wp_enqueue_script('sparkline', get_template_directory_uri() . '/assets/javascript/jquery.sparkline.min.js', array('jquery'), '2.1.2', true);
+	wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js', array(), '4.9.1', true);
 
-    wp_enqueue_script('app', get_template_directory_uri() . '/assets/javascript/app.js', array('sparkline'), '0.0.1', true);
+//    wp_enqueue_script('app', get_template_directory_uri() . '/assets/javascript/custom/app.js', array('foundation', 'd3'), '0.0.1', true);
 
     // Icons, Google fonts , etc
 	wp_enqueue_style('material-icons','https://fonts.googleapis.com/icon?family=Material+Icons',array(),'', 'all');

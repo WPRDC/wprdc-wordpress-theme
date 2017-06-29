@@ -23,10 +23,10 @@ class ThemeSettings {
      * @param string $label
      * @param string $option
      * @param string $placeholder
-     * @param int $size
+     * @param int    $size
      * @since WPRDC 0.1
      */
-    function theme_settings_form_text($label, $option, $placeholder='', $size=25) {
+    function theme_settings_form_text( $label, $option, $placeholder = '', $size = 25 ) {
         ?>
         <tr valign="top">
             <th scope="row">
@@ -34,7 +34,7 @@ class ThemeSettings {
             </th>
             <td>
                 <input type="text"
-                       value="<?php echo get_option('wprdc_theme_setting_' .$option); ?>"
+                       value="<?php echo get_option('wprdc_theme_setting_' . $option); ?>"
                        name="<?php echo "settings[{$option}]"; ?>"
                        size="<?php echo $size; ?>"
                        placeholder="<?php echo $placeholder; ?>"
@@ -52,7 +52,7 @@ class ThemeSettings {
      * @param string $placeholder
      * @since WPRDC. 0.1
      */
-    function theme_settings_form_textarea($label, $option, $placeholder='') {
+    function theme_settings_form_textarea( $label, $option, $placeholder = '' ) {
         ?>
         <tr valign="top">
             <th scope="row">
@@ -63,7 +63,7 @@ class ThemeSettings {
                     rows="10"
                     cols="100"
                     name="<?php echo "settings[{$option}]"; ?>"
-                    placeholder="<?php echo $placeholder; ?>"><?php echo get_option('wprdc_theme_setting_' .$option); ?></textarea>
+                    placeholder="<?php echo $placeholder; ?>"><?php echo get_option('wprdc_theme_setting_' . $option); ?></textarea>
             </td>
         </tr>
         <?php
@@ -73,10 +73,10 @@ class ThemeSettings {
      * Load the Theme Settings Page's HTML/Submit Page
      */
     function theme_settings_page() {
-        if (!current_user_can('manage_options')) {
+        if ( ! current_user_can('manage_options') ) {
             wp_die('You do not have sufficient permissions to access this page.');
         } else {
-            if (isset($_POST["update_settings"])) {
+            if (isset($_POST['update_settings']) ) {
                 $this->save_theme_settings_page();
             } else {
                 $this->theme_settings_page_form();
@@ -134,21 +134,21 @@ class ThemeSettings {
      */
     function save_theme_settings_page() {
         $response = 'An error has occurred. Please try again.';
-        if(isset($_POST['security'])) {
-            if (wp_verify_nonce($_POST['security'], 'theme-settings')) {
+        if (isset($_POST['security']) ) {
+            if (wp_verify_nonce($_POST['security'], 'theme-settings') ) {
 
-                foreach($_POST['settings'] as $setting => $value) {
-                    update_option('wprdc_theme_setting_'.$setting, esc_attr($value), 'yes');
+                foreach ($_POST['settings'] as $setting => $value ) {
+                    update_option('wprdc_theme_setting_' . $setting, esc_attr($value), 'yes');
                 }
 
-                //delete possible tweets from cache since we are updating the user
+                // delete possible tweets from cache since we are updating the user
                 wincache_ucache_delete('tweets');
 
                 $response = 'Settings successfully saved!';
             }
         }
 
-        //output response ?>
+        // output response ?>
         <h3><?php echo $response; ?></h3>
         <a href="#" onClick="window.location.reload()">Go Back</a>
     <?php }

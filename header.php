@@ -47,8 +47,9 @@
 				<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <img class="site-title-logo" src="<?php echo get_template_directory_uri()?>/assets/images/plain_logo_rbg_bridge.svg"/>
-                    </a>
+
                     <span class="site-title">Western Pennsylvania Regional Data Center</span>
+                    </a>
 				</div>
 			</div>
 			<div class="top-bar-right">

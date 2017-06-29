@@ -38,6 +38,10 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 
       .searchbar {
         margin-top: 5rem;
+        button {
+          border: 1px solid $wprdc-yellow;
+
+        }
       }
       .searchbar-comment {
         @include breakpoint(small down) {
@@ -136,94 +140,46 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
 }
 
 // Section divider
-.section-divider-container {
+.sparkline-group-container {
   background: $white;
-  .section-divider {
-    @include grid-row();
-    box-sizing: content-box;
-    margin-top: rem-calc(10%);
-    //border-top: 1px solid $wprdc-black;
+
+  .sparkline-container {
+    @include breakpoint(small) {
+      @include grid-col(12);
+    }
+    @include breakpoint(medium) {
+      @include grid-col(3);
+    }
+    .sparkline-title {
+      text-align: center;
+    }
+    svg {
+      display: block;
+      margin: auto;
+    }
   }
-
-}
-
-.material-icons.search-icon {
-  font-weight: 800;
 }
 
 // Outreach Stuff - middle row
+.info-row {
+  @include grid-row();
+  padding-top: rem-calc(20px);
+
+  a {
+    font-weight: 700;
+  }
+}
+
 .outreach-container {
   background: $wprdc-white;
-  padding-top: rem-calc(10%);
 
-  .outreach-stuff {
-    font-size: rem-calc(14pt);
-    @include grid-row();
-    a {
-      color: $wprdc-yellow;
-    }
-
-    .callout {
-      position: relative;
-      .post-line {
-        padding: rem-calc(5px) 0;
-        p {
-          margin: 0;
-        }
-        border-bottom: 1px solid dimgray;
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-
-      .logo {
-        color: $wprdc-yellow;
-        position: absolute;
-        top: 5px;
-        right: 3px;
-      }
-
-      .bottom-note {
-        position: absolute;
-        bottom: 10px;
-      }
-
-      .icon {
-        font-size: 16pt;
-        top: 0;
-      }
-
-      .tweets-orbit {
-        max-height: 120px;
-        overflow: hidden;
-
-      }
-    }
-
-  }
 }
 
-.technical{
+.technicalstuff-container {
   background-color: $wprdc-gray;
-  // Tech stuff - bpttpm row
-  .technical-stuff {
-    @include grid-row();
-
-    padding-top: rem-calc(20px);
-
-    .callout {
-      position: relative;
-      color: $wprdc-yellow;
-      background-color: $wprdc-white;
-      border-radius: (6px);
-    }
-  }
 }
 
-.clip-hexagon {
-  -webkit-clip-path: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
-}
+
 .data-alert {
   margin-top: 2rem;
   i {
@@ -236,14 +192,8 @@ $hex: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTg
   }
 }
 
-.event {
-  .event-title {
-    font-size: rem-calc(16pt);
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-  .event-date {
-    font-style: italic;
-  }
-
+.sparkline {
+  fill: none;
+  stroke: #666;
+  stroke-width: 2px;
 }

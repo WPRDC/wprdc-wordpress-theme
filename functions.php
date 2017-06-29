@@ -60,8 +60,7 @@ require_once( 'library/twitter.php' );
 /** Theme Settings */
 require_once( 'library/theme-settings.php');
 
-function theme_settings_add_page()
-{
+function theme_settings_add_page() {
     new ThemeSettings();
 }
 
