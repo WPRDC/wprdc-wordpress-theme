@@ -65,3 +65,4 @@ function theme_settings_add_page() {
 }
 
 add_action('admin_menu', 'theme_settings_add_page');
+

@@ -18,12 +18,33 @@
 get_header(); ?>
 
 <div class="main-wrap" role="main">
-	<article class="main-content">
+	<article class="main-content archive">
+        <h1 class="entry-title"><?php single_cat_title();?></h1>
 	<?php if ( have_posts() ) : ?>
-
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+            <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <div class="category-item clearfix">
+                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?><a></h3>
+                    <div class="clearfix byline">
+                        <p class="left">
+                            by <?php the_author(); ?>
+                        </p>
+                        <p class="right">
+                            <?php the_date(); ?>
+                        </p>
+                    </div>
+
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="post-thumbnail-wrapper left thumbnail">
+                            <?php echo get_the_post_thumbnail(get_the_ID(), array(125,125)); ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="entry-content">
+                        <?php the_excerpt(); ?>
+                    </div>
+                </div>
+            </article>
 		<?php endwhile; ?>
 
 		<?php else : ?>

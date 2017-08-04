@@ -1,58 +1,74 @@
-.footer-container {
-  max-width: 100%;
-  width: 100%;
-  margin: 0 auto;
-  border-top: 1px solid $medium-gray;
-  color: $wprdc-black;
-  background-color: $wprdc-black;
+#footer {
 
-}
+  &.footer-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid $medium-gray;
+    color: $wprdc-black;
+    background-color: $wprdc-black;
 
-.footer {
-  @include grid-row();
-  padding: rem-calc(15) 0;
-  background-color: $wprdc-black;
-  p {
-    color: $wprdc-gray;
-    font-size: rem-calc(14pt);
-    margin-bottom: 0;
   }
 
-  ul {
-    list-style-type: none;
-    margin: 1rem auto 0 auto;
-    padding: auto;
-    font-size: rem-calc(14pt);
-    li {
+  .footer {
+    @include grid-row();
+    padding: rem-calc(15) 0;
+    background-color: $wprdc-black;
+    p {
+      color: $wprdc-gray;
+      font-size: rem-calc(14pt);
+      margin-bottom: 0;
+    }
 
-      display: inline;
-      &:not(:last-child) {
-        border-right: 1px solid $wprdc-gray;
-        padding-right: 5px;
+    ul {
+      list-style-type: none;
+      margin: 1rem auto 0 auto;
+      padding: auto;
+      font-size: rem-calc(14pt);
+      li {
 
+        display: inline;
+        &:not(:last-child) {
+          border-right: 1px solid $wprdc-gray;
+          padding-right: 5px;
+
+        }
+      }
+    }
+
+    .logo-container{
+      @include breakpoint(small down){
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .big-logo {
+        margin-top: 8px;
+        @include breakpoint(small down){
+          display: block;
+          margin: auto;
+        }
+      }
+      .quick-links {
+        @include breakpoint(small down) {
+          display: inline-block;
+        }
       }
     }
   }
-  .footer-logo{
-    margin-top: 8px;
+
+  .subfooter {
+    background-color: $black;
+    color: $wprdc-white;
   }
-}
 
-
-.subfooter {
-  background-color: $black;
-  color: $wprdc-white;
-}
-
-
-
-.alert-container {
-  margin: 1rem 0;
-  .alert-icon {
-    height: 2rem;
+  .alert-container {
+    margin: 1rem 0;
+    .alert-icon {
+      height: 2rem;
+    }
+    .alert-text {
+      margin-left: .5rem;
+    }
   }
-  .alert-text {
-    margin-left: .5rem;
-  }
-}
 
+}

@@ -1,10 +1,11 @@
 .main-wrap {
   @include grid-row();
-  margin-top: 1rem;
+  margin: 1rem auto;
 
   @include breakpoint(medium) {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
+
 }
 
 .main-content {
@@ -12,7 +13,8 @@
   // default 2 column
   @include grid-column(12);
   @include breakpoint(medium) {
-    @include grid-column(8);
+    @include grid-column(10);
+    @include grid-column-position(center);
   }
 
   // 1 column
@@ -29,6 +31,46 @@
       @include grid-col-pos(4);
     }
   }
+
+  .nav-links {
+    @include grid-row();
+    padding: 0;
+
+  }
+  .nav-previous, .nav-next {
+    @include breakpoint(medium) {
+      @include grid-column(6);
+    }
+
+  }
+
+  .nav-previous {
+    text-align: left;
+    padding-right: 4rem;
+    padding-left: 0;
+  }
+
+  .nav-next {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 4rem;
+  }
+
+  .byline {
+    margin: 0 0 1rem 0;
+    border-bottom: 1px solid $wprdc-black;
+    .columns {
+      padding: 0;
+    }
+    p {
+      margin-bottom: .5rem;
+    }
+  }
+
+  footer {
+
+  }
+
 }
 
 .sidebar {
@@ -47,5 +89,65 @@
       @include grid-col-pos(-8);
       margin-top: 1rem;
     }
+  }
+}
+
+.tags-title {
+  font-weight: 600;
+}
+
+.tags-list {
+  list-style: none;
+  display: inline;
+  margin-left: 0;
+  .tag {
+    font-weight: 500;
+    display: inline;
+    text-transform: uppercase;
+    padding: 1px 2px;
+    margin: 0 .5rem 0 0;
+    //border: 1px solid $wprdc-gray;
+    //background: $wprdc-gray;
+
+  }
+
+}
+
+.entry-title {
+  font-weight: 600;
+}
+
+.archive {
+
+  .post {
+    @include callout($wprdc-gray);
+    margin: 1rem 0;
+    h3 {
+      font-weight: 600;
+    }
+    .byline {
+      color: $wprdc-black;
+    }
+    .entry-content {
+      color: $wprdc-black;
+    }
+    .thumbnail {
+      margin-right: .5rem;
+    }
+  }
+
+}
+
+.post {
+  footer {
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: 1px solid $wprdc-black;
+  }
+}
+
+.pagination {
+  li.current{
+  padding: 0;
   }
 }

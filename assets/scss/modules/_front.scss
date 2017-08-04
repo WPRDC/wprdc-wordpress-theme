@@ -1,0 +1,200 @@
+// Page header
+
+.front-hero {
+  @include breakpoint(small) {
+    background-size: cover;
+    padding: rem-calc(.5rem) 0;
+    margin: 0;
+    height: auto;
+    position: relative;
+    text-align: left;
+  }
+
+  @include breakpoint(medium) {
+    border-top: 1px solid $wprdc-gray;
+    margin: 0 0 0 0;
+  }
+
+  background-color: $wprdc-black;
+
+  .marketing {
+    @include grid-row();
+
+    .search-container {
+      @include breakpoint(small) {
+        @include grid-column(12);
+      }
+
+      @include breakpoint(medium) {
+        @include grid-column(8);
+
+      }
+
+      .searchbar {
+        button {
+          border: 2px solid $wprdc-yellow;
+        }
+      }
+      .search-comment {
+        @include breakpoint(small down) {
+          p{
+            text-align: center;
+          }
+        }
+        @include breakpoint(medium) {
+          margin: 3rem auto 2rem;
+        }
+
+        p {
+
+          font-size: rem-calc(14pt);
+          font-style: italic;
+          color: $dark-gray;
+          margin-bottom: rem-calc(6pt);
+        }
+      }
+    }
+
+    .showcase-zone {
+      @include breakpoint(small down) {
+        display: none;
+      }
+      @include breakpoint(medium) {
+        border-left: 2px solid $wprdc-gray; // todo: replace with custom divider
+        @include grid-column(4);
+
+        .orbit-container {
+          margin-left: rem-calc(20px);
+          .panel-shade{
+            background-color: rgba($wprdc-black, 0.7);
+            position: absolute;
+            margin: 0 auto 0 auto;
+            width: 320px;
+            height: 320px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+          }
+          .panel {
+            width: 320px;
+            height: 320px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+          }
+          .showcase-text-container {
+            h3 {
+              font-size: 1rem;
+              font-weight: 600;
+            }
+            p {
+              font-size: .8rem;
+            }
+            color: $wprdc-white;
+            padding: 57px 38px;
+            height: 320px;
+            width: 320px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    color: #fff;
+    font-weight: 500;
+
+    @include breakpoint(small) {
+      font-size: 2.2rem;
+    }
+
+    @include breakpoint(medium) {
+      font-size: 2.875rem;
+    }
+  }
+
+  h4 {
+    color: #fefefe;
+    font-weight: 300;
+    font-size: 1.3125rem;
+  }
+
+  .download {
+    margin-top: rem-calc(20);
+  }
+}
+
+// Outreach Stuff - middle row
+.info-row {
+  padding: rem-calc(3rem) 0 rem-calc(1rem) 0;
+
+  @include grid-row();
+
+  a {
+    font-weight: 700;
+  }
+
+  .info-box {
+    @include breakpoint(small){
+      @include grid-col(6)
+
+    }
+    @include breakpoint(medium) {
+      @include grid-col(3);
+      p{
+        font-size: 14pt;
+      }
+    }
+    &.wide {
+      @include breakpoint(small){
+        @include grid-col(12)
+      }
+      @include breakpoint(medium) {
+        @include grid-col(4);
+      }
+    }
+    img{
+      display:block; margin:auto; height:120px
+    }
+    h3{
+      font-weight: 600;
+    }
+  }
+}
+
+.outreach-container {
+  background: $wprdc-white;
+
+}
+
+.technicalstuff-container {
+  background-color: $wprdc-gray;
+}
+.alert-container{
+  @include breakpoint(small down){
+    text-align: center;
+  }
+  .alert-icon{
+    height: 1.5rem;
+  }
+  .data-alert {
+    @include breakpoint(small down){
+      display: inline-block;
+      margin: auto;
+    }
+    margin-top: 2rem;
+
+    span {
+      vertical-align: top;
+      color: $wprdc-yellow;
+    }
+  }
+}
+
+
+.sparkline {
+  fill: none;
+  stroke: #666;
+  stroke-width: 2px;
+}

@@ -47,7 +47,7 @@
 // ---------
 
 // Colors taken from logo
-$wprdc-black: #2E2E2E;
+$wprdc-black: #242424;
 $wprdc-yellow: #F69B00;
 $wprdc-white: #E1E1E1;
 $wprdc-gray: #A5B5B7;
@@ -76,7 +76,7 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 3px;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
@@ -471,16 +471,16 @@ $orbit-control-zindex: 10;
 
 $pagination-font-size: rem-calc(14);
 $pagination-margin-bottom: $global-margin;
-$pagination-item-color: $black;
-$pagination-item-padding: rem-calc(3 10);
+$pagination-item-color: $wprdc-black;
+$pagination-item-padding: rem-calc(1 8);
 $pagination-item-spacing: rem-calc(1);
-$pagination-radius: $global-radius;
-$pagination-item-background-hover: $light-gray;
-$pagination-item-background-current: $primary-color;
+$pagination-radius: 3px;
+$pagination-item-background-hover: $wprdc-yellow;
+$pagination-item-background-current: $wprdc-gray;
 $pagination-item-color-current: $white;
 $pagination-item-color-disabled: $medium-gray;
 $pagination-ellipsis-color: $black;
-$pagination-mobile-items: false;
+$pagination-mobile-items: true;
 $pagination-mobile-current-item: false;
 $pagination-arrows: true;
 
@@ -627,3 +627,14 @@ $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
 
 $top-bar-font-size: 12pt;
+
+// 38. Custom Helper Classes
+// -------------------------
+.left {
+  float: left
+}
+
+.right {
+  float: right;
+}
+
