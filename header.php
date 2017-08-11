@@ -35,8 +35,6 @@
         <!-- Mobile -->
         <div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
             <div class="title-bar-left">
-                <button class="menu-icon" type="button"
-                        data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
                 <span class="site-mobile-title title-bar-title">
 					<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                         <img class="site-title-logo"
@@ -44,6 +42,11 @@
 
                         <span class="site-title"><?php bloginfo('name'); ?></span></a>
 				</span>
+            </div>
+            <div class="title-bar-right">
+
+                <button class="menu-icon light" type="button"
+                        data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
             </div>
         </div>
 
@@ -53,15 +56,29 @@
                 <div class="site-desktop-title top-bar-title">
                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                         <img class="site-title-logo"
-                             src="<?php echo get_template_directory_uri() ?>/assets/images/plain_logo_rbg_bridge.svg"/>
-
-                        <span class="site-title">Western Pennsylvania Regional Data Center</span>
+                             src="<?php echo get_template_directory_uri() ?>/assets/images/plain_logo_rbg_cropped.svg"/>
                     </a>
                 </div>
             </div>
             <div class="top-bar-right">
-                <?php foundationpress_top_bar_r(); ?>
 
+                <!-- Search -->
+                <!------------>
+                <div class="header-search">
+                    <form method="get" action="https://data.wprdc.org/dataset">
+                        <div class="right input-group">
+
+                            <input name="q" type="text" class="input-group-field" placeholder="Search for open data">
+
+                            <div class="input-group-button">
+                                <button type="submit" class="button"><i class="material-icons">search</i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Menu -->
+                <!---------->
+                <?php foundationpress_top_bar_r(); ?>
                 <?php if (!get_theme_mod('wpt_mobile_menu_layout') || get_theme_mod('wpt_mobile_menu_layout') === 'topbar') : ?>
                     <?php get_template_part('template-parts/mobile-top-bar'); ?>
                 <?php endif; ?>

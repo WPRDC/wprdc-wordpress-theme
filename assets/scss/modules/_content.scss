@@ -66,11 +66,6 @@
       margin-bottom: .5rem;
     }
   }
-
-  footer {
-
-  }
-
 }
 
 .sidebar {
@@ -106,9 +101,6 @@
     text-transform: uppercase;
     padding: 1px 2px;
     margin: 0 .5rem 0 0;
-    //border: 1px solid $wprdc-gray;
-    //background: $wprdc-gray;
-
   }
 
 }
@@ -118,7 +110,6 @@
 }
 
 .archive {
-
   .post {
     @include callout($wprdc-gray);
     margin: 1rem 0;
@@ -131,11 +122,16 @@
     .entry-content {
       color: $wprdc-black;
     }
+    .post-thumbnail-wrapper.showcase{
+      margin: 1rem auto;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+    }
     .thumbnail {
-      margin-right: .5rem;
+      margin-right: 1rem;
     }
   }
-
 }
 
 .post {
