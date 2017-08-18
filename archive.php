@@ -23,7 +23,11 @@ function get(&$var, $default = null)
 
 $category = get_the_category()[0]->slug;
 $thumbnail_sizes = array('showcase' => array(800, 600),
-    'news' => array(125, 125))
+    'news' => array(125, 125));
+$queried_object = get_queried_object();
+if($queried_object->parent->slug == 'faq'){
+    echo "<h1>FAQ child</h1>";
+}
 ?>
 
     <div class="main-wrap" role="main">
@@ -36,13 +40,7 @@ $thumbnail_sizes = array('showcase' => array(800, 600),
                 <?php while (have_posts()) : the_post(); ?>
                     <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
-                        <?php if($category=='faq')
-
-
-
-
-                        <?php else: /* Showcase and News */ ?>
+                        <?php /* Showcase and News */ ?>
                         <div class="category-item clearfix">
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?><a></h3>
                             <?php if ($category != 'showcase') : ?>
@@ -65,7 +63,6 @@ $thumbnail_sizes = array('showcase' => array(800, 600),
                                 <?php the_excerpt(); ?>
                             </div>
                         </div>
-                        <?php endif;?>
                     </article>
                 <?php endwhile; ?>
 

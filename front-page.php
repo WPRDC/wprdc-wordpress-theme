@@ -21,7 +21,8 @@ get_header(); ?>
                         <?php foreach ($posts as $post) : ?>
                             <?php if (has_post_thumbnail()) : ?>
                                 <li class="orbit-slide" id="post-<?php echo $post - ID; ?>"
-                                    style="background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url(<?php echo get_the_post_thumbnail_url($post); ?>">
+                                    style="background-repeat: no-repeat;
+        background-position: right top; background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url(<?php echo get_the_post_thumbnail_url($post); ?>">
                                     <div class="showcase-info">
                                         <a href="<?php echo get_permalink($post->ID); ?>">
                                             <span class="showcase-title"><?php echo $post->post_title; ?></span>

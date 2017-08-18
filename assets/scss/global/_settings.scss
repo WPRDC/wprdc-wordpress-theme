@@ -46,6 +46,8 @@
 // 1. Global
 // ---------
 
+
+
 // Colors taken from logo
 $wprdc-black: #242424;
 $wprdc-yellow: #F69B00;
@@ -205,14 +207,15 @@ $input-error-font-weight: $global-weight-bold;
 
 $accordion-background: $white;
 $accordion-plusminus: true;
-$accordion-title-font-size: rem-calc(12);
-$accordion-item-color: $primary-color;
-$accordion-item-background-hover: $light-gray;
-$accordion-item-padding: 1.25rem 1rem;
+$accordion-title-font-size: rem-calc(18);
+$accordion-item-color: $wprdc-black;
+$accordion-item-background-hover: none;
+$accordion-item-padding: 1rem 1rem;
 $accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-content-border: none; //1px solid $light-gray;
 $accordion-content-color: $body-font-color;
-$accordion-content-padding: 1rem;
+$accordion-content-padding: .25rem 1rem 1rem 2rem;
+
 
 // 8. Accordion Menu
 // -----------------
