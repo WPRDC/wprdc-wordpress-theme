@@ -36,7 +36,7 @@ function foundationpress_pagination() {
 			// Display the pagination if more than one page is found.
 			if ( $paginate_links ) {
 				echo $paginate_links;
-			}
+				}
 }
 endif;
 
@@ -121,7 +121,7 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 					$is_video = true;
 					break;
 					}
-			}
+				}
 
 			// Process video embed
 			if ( true == $is_video ) {
@@ -148,9 +148,9 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 				// Wrap oEmbed markup in Foundation responsive embed
 				return '<div class="' . $class . '">' . $html . '</div>';
 
-			} else { // not a supported embed
+				} else { // not a supported embed
 				return $html;
-			}
+				}
 
 }
 add_filter( 'embed_oembed_html', 'foundationpress_responsive_video_oembed_html', 10, 4 );

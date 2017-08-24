@@ -22,13 +22,10 @@ function get( &$var, $default = null ) {
 
 $category = get_the_category()[0]->slug;
 $thumbnail_sizes = array(
-'showcase' => array(800, 600),
+    'showcase' => array(800, 600),
     'news' => array(125, 125),
 );
 $queried_object = get_queried_object();
-if ($queried_object->parent->slug == 'faq' ) {
-    echo '<h1>FAQ child</h1>';
-}
 ?>
 
     <div class="main-wrap" role="main">
@@ -44,7 +41,7 @@ if ($queried_object->parent->slug == 'faq' ) {
                         <?php /* Showcase and News */ ?>
                         <div class="category-item clearfix">
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?><a></h3>
-                            <?php if ($category != 'showcase' ) : ?>
+                            <?php if ('showcase' !== $category) : ?>
                                 <div class="clearfix byline">
                                     <p class="left">
                                         by <?php the_author(); ?>
@@ -55,7 +52,9 @@ if ($queried_object->parent->slug == 'faq' ) {
                                 </div>
                             <?php endif; ?>
                             <?php if (has_post_thumbnail() ) : ?>
-                                <div class="post-thumbnail-wrapper <?php if ($category != 'showcase' ) { echo 'left';}
+                                <div class="post-thumbnail-wrapper <?php if ('showcase' !== $category) {
+                                    echo 'left';
+                                }
                                 echo ' ' . $category ?> thumbnail">
                                     <?php echo get_the_post_thumbnail(get_the_ID(), get($thumbnail_sizes[ $category ], array(125, 125))); ?>
                                 </div>

@@ -16,12 +16,13 @@
         <?php do_action('foundationpress_before_footer'); ?>
         <?php dynamic_sidebar('footer-widgets'); ?>
         <div class="medium-3 columns logo-container">
-            <img class="big-logo" src="<?php echo get_template_directory_uri() ?>/assets/images/plain_logo_rbg_cropped.svg">
+            <img class="big-logo"
+                 src="<?php echo get_template_directory_uri() ?>/assets/images/plain_logo_rbg_cropped.svg">
             <ul class="quick-links">
-                <li><a class="yellow" href="<?php echo home_url('about')?>">About</a></li>
-                <li><a class="yellow" href="<?php echo home_url('contact')?>">Contact Us</a></li>
-                <li><a class="yellow" href="<?php echo home_url('terms-of-use')?>">Terms</a></li>
-                <li><a class="yellow" href="<?php echo home_url('privacy')?>">Privacy</a></li>
+                <li><a class="yellow" href="<?php echo home_url('about') ?>">About</a></li>
+                <li><a class="yellow" href="<?php echo home_url('contact') ?>">Contact Us</a></li>
+                <li><a class="yellow" href="<?php echo home_url('terms-of-use') ?>">Terms</a></li>
+                <li><a class="yellow" href="<?php echo home_url('privacy') ?>">Privacy</a></li>
             </ul>
         </div>
         <div class="medium-9  columns">
@@ -39,12 +40,13 @@
     </footer>
 
     <div class="subfooter">
-        <p class="text-center" style="margin: 0">&copy; 2017 University of Pittsburgh, UCSUR, Western Pennsylvania Regional Data Center</p>
+        <p class="text-center" style="margin: 0">&copy; 2017 University of Pittsburgh, UCSUR, Western Pennsylvania
+            Regional Data Center</p>
     </div>
 </div>
 
 
-<?php do_action('foundationpress_layout_end'); ?>
+<?php do_action('foundationpress_layout_end'                 ); ?>
 
 <?php if (get_theme_mod('wpt_mobile_menu_layout') === 'offcanvas' ) : ?>
     </div><!-- Close off-canvas content -->

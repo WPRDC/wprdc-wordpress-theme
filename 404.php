@@ -9,7 +9,7 @@
 get_header(); ?>
 
  <div class="main-wrap" role="main">
-	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+	<article <?php post_class('main-content'); ?> id="post-<?php the_ID(); ?>">
 		<header>
 			<h1 class="entry-title"><?php _e( '404 - Page Not Found ', 'foundationpress' ); ?></h1>
 		</header>
@@ -38,4 +38,6 @@ get_header(); ?>
 
 </div>
 
-<?php get_footer();
+<?php
+
+get_footer();

@@ -2,7 +2,9 @@
 /*
 Template Name: Front
 */
-get_header(); ?>
+get_header();
+
+?>
 
 
     <!-- Get Showcase Posts -->
@@ -20,10 +22,12 @@ get_header(); ?>
                     </button>
                 </div>
                 <ul class="orbit-container">
-                    <?php if ($posts = wp_get_recent_posts(array(
-	'numberposts' => 5,
-	'category' => get_cat_ID('showcase'),
-), OBJECT) ) : ?>
+                    <?php
+                    $posts = wp_get_recent_posts(array(
+                        'numberposts' => 5,
+                        'category' => get_cat_ID('showcase'),
+                    ), OBJECT);
+                    if ($posts ) : ?>
                         <?php foreach ($posts as $post ) : ?>
                             <?php if (has_post_thumbnail() ) : ?>
                                 <li class="orbit-slide" id="post-<?php echo $post - ID; ?>"
@@ -51,10 +55,10 @@ get_header(); ?>
         </div>
         <div class="marketing-container">
             <div class="marketing">
-                <h1><?php echo bloginfo('description') ?></h1>
-                <?php if ($response = ckan_api_get('action/package_search') ) : ?>
+                <h1><?php bloginfo('description') ?></h1>
+                <?php $response = ckan_api_get('action/package_search'); if ($response ) : ?>
                     <p>Now serving <?php echo $response->count; ?>
-                        dataset<?php echo($response->count > 1 ? 's' : ''); ?>  and counting.</p>
+                        dataset<?php echo($response->count > 1 ? 's' : ''); ?> and counting.</p>
                 <?php endif; ?>
                 <a href="https://data.wprdc.org" class="button large browse-button">Browse the Data!</a>
 
@@ -68,12 +72,10 @@ get_header(); ?>
 $noobs_url = home_url('/beginners/');
 $wizards_url = home_url('/data-wizards/');
 $publishers_url = home_url('/publishers/');
-
 $news_url = esc_url(get_category_link(get_cat_ID('news')));
 $events_url = home_url('/events/list/');
 $tools_url = 'https://tools.wprdc.org';
 $contact_url = home_url('/contact/');
-
 $beginners_url = home_url('/beginners/');
 $guides_url = '';
 $newsletter_signup_url = esc_url(get_option('wprdc_theme_setting_newsletter_signup_url'));
@@ -81,7 +83,6 @@ $newsletter_issues_url = esc_url(get_option('wprdc_theme_setting_newsletter_issu
 $news_url = esc_url(get_category_link(get_cat_ID('news')));
 $twitter_url = 'https://www.twitter.com/WPRDC';
 $request_url = ckan_url($url = 'datarequest');
-
 ?>
     <!-- Guides, Tutorials, Tools -->
     <!------------------------------>
@@ -156,7 +157,7 @@ $request_url = ckan_url($url = 'datarequest');
                         <h3 class="text-center">Events</h3>
                     </a>
                     <p class="text-center">We maintain a <a
-                                href="<? echo $events_url; ?>">calendar</a>? of civic technology
+                                href="<?php echo $events_url; ?>">calendar</a>? of civic technology
                         and open data events, trainings, workshops, talks, and activities offered by us and a number of
                         partners.</p>
                 </div>

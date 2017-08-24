@@ -68,7 +68,7 @@ add_action('admin_menu', 'theme_settings_add_page');
 
 function faq_one_page( $query ) {
     if ($query->is_main_query() && $query->is_category(['wizard-faq', 'beginner-faq', 'publisher-faq', 'faq']) ) {
-        $query->query_vars['posts_per_page'] = -1;
+        $query->query_vars['posts_per_page'] = 100;
         $query->query_vars['order'] = 'ASC';
     }
 }
