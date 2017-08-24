@@ -1,15 +1,14 @@
 // Navigation breakpoints
 
-
-.menu-icon{
+.menu-icon {
   color: $wprdc-yellow;
 }
 
 .header-search {
-  @include breakpoint(small){
+  @include breakpoint(small) {
     display: none;
   }
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     display: block;
   }
   float: right;
@@ -24,7 +23,7 @@
     height: 30px;
     font-size: rem-calc(16px);
     color: $wprdc-white;
-    &::placeholder{
+    &::placeholder {
       color: $wprdc-gray;
     }
     box-shadow: none;
@@ -39,15 +38,15 @@
     }
     max-width: rem-calc(300px);
   }
-  .input-group-button{
-    button{
+  .input-group-button {
+    button {
       padding-top: 5px;
       padding-right: 0;
       padding-left: 2px;
     }
-    button:hover{
+    button:hover {
       background-color: inherit;
-      i{
+      i {
         font-weight: 700;
         color: $wprdc-yellow;
 
@@ -61,9 +60,10 @@
   @include hide-for(medium);
 }
 
-.top-bar{
+.top-bar {
   border-bottom: 1px solid $wprdc-gray;
 }
+
 .desktop-menu,
 .site-navigation .top-bar-left {
   @include show-for(medium);
@@ -129,13 +129,23 @@
   }
 }
 
-
 // Tablet and desktop menu
 .desktop-menu {
+  .active > a, .current_page_item > a {
+    color: darken($wprdc-yellow, 10%);
+    background-color: $wprdc-black;
+  }
 
   a {
     color: $wprdc-yellow;
     font-size: 12pt !important;
+    &:hover {
+      color: darken($wprdc-yellow, 10%);
+    }
+    &:active {
+      background-color: $wprdc-black;
+    }
+
     &:after {
       border-color: $wprdc-yellow transparent transparent !important; // TODO: not use important here
     }

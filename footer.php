@@ -18,10 +18,10 @@
         <div class="medium-3 columns logo-container">
             <img class="big-logo" src="<?php echo get_template_directory_uri() ?>/assets/images/plain_logo_rbg_cropped.svg">
             <ul class="quick-links">
-                <li><a class="yellow" href="about">About</a></li>
-                <li><a class="yellow" href="contact">Contact Us</a></li>
-                <li><a class="yellow" href="terms">Terms</a></li>
-                <li><a class="yellow" href="privacy">Privacy</a></li>
+                <li><a class="yellow" href="<?php echo home_url('about')?>">About</a></li>
+                <li><a class="yellow" href="<?php echo home_url('contact')?>">Contact Us</a></li>
+                <li><a class="yellow" href="<?php echo home_url('terms-of-use')?>">Terms</a></li>
+                <li><a class="yellow" href="<?php echo home_url('privacy')?>">Privacy</a></li>
             </ul>
         </div>
         <div class="medium-9  columns">

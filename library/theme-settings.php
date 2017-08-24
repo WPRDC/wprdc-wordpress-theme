@@ -128,6 +128,10 @@ class ThemeSettings {
                 <?php $this->theme_settings_form_text('Sign-up URL','newsletter_signup_url','url.to/singnup',100); ?>
                 <?php $this->theme_settings_form_text('Previous Issues URL','newsletter_issues_url','url.to/past-issues',100); ?>
             </table>
+            <h2>Front Page</h2>
+            <table class="form-table">
+                <?php $this->theme_settings_form_text('Mobile Hero Image','mobile_hero_image','url.to/image',100); ?>
+            </table>
             <p>
                 <input type="submit" value="Save Settings" class="button-primary"/>
             </p>
