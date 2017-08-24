@@ -18,7 +18,7 @@ function foundationpress_sidebar_widgets() {
 		'after_title' => '</h6>',
 		));
 
-		register_sidebar(array(
+			register_sidebar(array(
 			'id' => 'footer-widgets',
 			'name' => __( 'Footer widgets', 'foundationpress' ),
 			'description' => __( 'Drag widgets to this footer container', 'foundationpress' ),
@@ -26,7 +26,7 @@ function foundationpress_sidebar_widgets() {
 			'after_widget' => '</article>',
 			'before_title' => '<h6>',
 			'after_title' => '</h6>',
-		));
+			));
 }
 
 add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );

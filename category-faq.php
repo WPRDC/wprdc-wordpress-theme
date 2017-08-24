@@ -22,12 +22,12 @@ get_header();
     <div class="main-wrap" role="main">
         <article class="main-content faq-content archive">
             <h1 class="entry-title"><?php single_cat_title(); ?></h1>
-            <?php if (have_posts()) : ?>
+            <?php if (have_posts() ) : ?>
 
                 <?php /* Start the Loop */ ?>
                 <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
 
-                    <?php while (have_posts()) : the_post(); ?>
+                    <?php while (have_posts() ) : the_post(); ?>
                         <li id="faq-<?php the_ID(); ?>" class="accordion-item" data-accordion-item>
                             <a href="#" class="accordion-title bold"><?php the_title(); ?></a>
                             <div class="accordion-content" data-tab-content>
@@ -46,9 +46,9 @@ get_header();
 
             <?php /* Display navigation to next/previous pages when applicable */ ?>
             <?php
-            if (function_exists('foundationpress_pagination')) :
+            if (function_exists('foundationpress_pagination') ) :
                 foundationpress_pagination();
-            elseif (is_paged()) :
+            elseif (is_paged() ) :
                 ?>
                 <nav id="post-nav">
                     <div class="post-previous"><?php next_posts_link(__('&larr; Older posts', 'foundationpress')); ?></div>

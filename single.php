@@ -36,7 +36,7 @@ get_header(); ?>
 					)
 				);
 			?>
-            <?php if(has_tag()): ?>
+            <?php if (has_tag() ) : ?>
                 <span class="tags-title">Tags:</span>
                 <ul class="tags-list">
                     <?php the_tags('<li class="tag">', '</li><li class="tag">','</li>'); ?>
@@ -45,10 +45,10 @@ get_header(); ?>
 
 <!--            <div class="nav-links">-->
 <!--                <div class="nav-previous">-->
-<!--                        --><?php //previous_post_link('<div class="small-1 columns">&laquo</div><div class="small-11 columns">%link</div>'); ?>
+<!--                        --><?php // previous_post_link('<div class="small-1 columns">&laquo</div><div class="small-11 columns">%link</div>'); ?>
 <!--                </div>-->
 <!--                <div class="nav-next">-->
-<!--                    --><?php //next_post_link('<div class="small-11 columns">%link</div><div class="small-1 columns">&raquo</div>'); ?>
+<!--                    --><?php // next_post_link('<div class="small-11 columns">%link</div><div class="small-1 columns">&raquo</div>'); ?>
 <!--                </div>-->
 <!--            </div>-->
 		</footer>

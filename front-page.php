@@ -20,9 +20,12 @@ get_header(); ?>
                     </button>
                 </div>
                 <ul class="orbit-container">
-                    <?php if ($posts = wp_get_recent_posts(array('numberposts' => 5, 'category' => get_cat_ID('showcase')), OBJECT)) : ?>
-                        <?php foreach ($posts as $post) : ?>
-                            <?php if (has_post_thumbnail()) : ?>
+                    <?php if ($posts = wp_get_recent_posts(array(
+	'numberposts' => 5,
+	'category' => get_cat_ID('showcase'),
+), OBJECT) ) : ?>
+                        <?php foreach ($posts as $post ) : ?>
+                            <?php if (has_post_thumbnail() ) : ?>
                                 <li class="orbit-slide" id="post-<?php echo $post - ID; ?>"
                                     style="background: linear-gradient( rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.8) ),url(<?php echo get_the_post_thumbnail_url($post); ?>);
                                             background-size: cover;">
@@ -49,7 +52,7 @@ get_header(); ?>
         <div class="marketing-container">
             <div class="marketing">
                 <h1><?php echo bloginfo('description') ?></h1>
-                <?php if ($response = ckan_api_get('action/package_search')) : ?>
+                <?php if ($response = ckan_api_get('action/package_search') ) : ?>
                     <p>Now serving <?php echo $response->count; ?>
                         dataset<?php echo($response->count > 1 ? 's' : ''); ?>  and counting.</p>
                 <?php endif; ?>
@@ -61,7 +64,7 @@ get_header(); ?>
 
 
 <?php
-# URLS FOR THIS SECTION
+// URLS FOR THIS SECTION
 $noobs_url = home_url('/beginners/');
 $wizards_url = home_url('/data-wizards/');
 $publishers_url = home_url('/publishers/');
@@ -76,7 +79,7 @@ $guides_url = '';
 $newsletter_signup_url = esc_url(get_option('wprdc_theme_setting_newsletter_signup_url'));
 $newsletter_issues_url = esc_url(get_option('wprdc_theme_setting_newsletter_issues_url'));
 $news_url = esc_url(get_category_link(get_cat_ID('news')));
-$twitter_url = "https://www.twitter.com/WPRDC";
+$twitter_url = 'https://www.twitter.com/WPRDC';
 $request_url = ckan_url($url = 'datarequest');
 
 ?>

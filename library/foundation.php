@@ -26,17 +26,17 @@ function foundationpress_pagination() {
 		'type' => 'list',
 		) );
 
-		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination text-center'>", $paginate_links );
-		$paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
-		$paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='current'><a href='#'>", $paginate_links );
-		$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
-		$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
-		$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
+			$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination text-center'>", $paginate_links );
+			$paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
+			$paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='current'><a href='#'>", $paginate_links );
+			$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
+			$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
+			$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
 
-		// Display the pagination if more than one page is found.
-		if ( $paginate_links ) {
+			// Display the pagination if more than one page is found.
+			if ( $paginate_links ) {
 				echo $paginate_links;
-		}
+			}
 }
 endif;
 
@@ -57,8 +57,8 @@ function foundationpress_menu_fallback() {
 		sprintf(  __( '<a href="%s">Customize</a>', 'foundationpress' ),
 			get_admin_url( get_current_blog_id(), 'customize.php' )
 		)
-		);
-		echo '</div>';
+			);
+			echo '</div>';
 }
 endif;
 
@@ -67,7 +67,7 @@ if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
 function foundationpress_active_nav_class( $classes, $item ) {
 		if ( 1 === $item->current || true === $item->current_item_ancestor ) {
 			$classes[] = 'active';
-		}
+			}
 		return $classes;
 }
 add_filter( 'nav_menu_css_class', 'foundationpress_active_nav_class', 10, 2 );
@@ -109,22 +109,22 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 		'ted',
 		'videopress',
 		'vimeo',
-		);
+			);
 
-		$is_video = false;
+			$is_video = false;
 
-		// Determine if embed is a video
-		foreach ( $video_sites as $site ) {
+			// Determine if embed is a video
+			foreach ( $video_sites as $site ) {
 				// Match on `$html` instead of `$url` because of
 				// shortened URLs like `youtu.be` will be missed
 				if ( strpos( $html, $site ) ) {
 					$is_video = true;
 					break;
-				}
-		}
+					}
+			}
 
-		// Process video embed
-		if ( true == $is_video ) {
+			// Process video embed
+			if ( true == $is_video ) {
 
 				// Find the `<iframe>`
 				$doc = new DOMDocument();
@@ -136,21 +136,21 @@ function foundationpress_responsive_video_oembed_html( $html, $url, $attr, $post
 					$width  = $tag->getAttribute('width');
 					$height = $tag->getAttribute('height');
 					break; // should only be one
-				}
+					}
 
 				$class = 'responsive-embed'; // Foundation class
 
 				// Determine if aspect ratio is 16:9 or wider
 				if ( is_numeric( $width ) && is_numeric( $height ) && ( $width / $height >= 1.7 ) ) {
 					$class .= ' widescreen'; // space needed
-				}
+					}
 
 				// Wrap oEmbed markup in Foundation responsive embed
 				return '<div class="' . $class . '">' . $html . '</div>';
 
-		} else { // not a supported embed
+			} else { // not a supported embed
 				return $html;
-		}
+			}
 
 }
 add_filter( 'embed_oembed_html', 'foundationpress_responsive_video_oembed_html', 10, 4 );
@@ -164,9 +164,9 @@ if ( ! function_exists( 'foundationpress_mobile_menu_id' ) ) :
 function foundationpress_mobile_menu_id() {
 		if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) {
 			echo 'off-canvas-menu';
-		} else {
+			} else {
 			echo 'mobile-menu';
-		}
+			}
 }
 endif;
 
@@ -178,7 +178,7 @@ if ( ! function_exists( 'foundationpress_title_bar_responsive_toggle' ) ) :
 function foundationpress_title_bar_responsive_toggle() {
 		if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) {
 			echo 'data-responsive-toggle="mobile-menu"';
-		}
+			}
 }
 endif;
 

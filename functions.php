@@ -60,15 +60,14 @@ require_once('library/theme-settings.php');
 /** Custom Functions */
 require_once('library/wprdc.php');
 
-function theme_settings_add_page()
-{
+function theme_settings_add_page() {
     new ThemeSettings();
 }
 
 add_action('admin_menu', 'theme_settings_add_page');
 
-function faq_one_page($query){
-    if ($query->is_main_query() && $query->is_category(['wizard-faq', 'beginner-faq', 'publisher-faq', 'faq'])){
+function faq_one_page( $query ) {
+    if ($query->is_main_query() && $query->is_category(['wizard-faq', 'beginner-faq', 'publisher-faq', 'faq']) ) {
         $query->query_vars['posts_per_page'] = -1;
         $query->query_vars['order'] = 'ASC';
     }

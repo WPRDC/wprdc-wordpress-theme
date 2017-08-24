@@ -16,34 +16,35 @@
  */
 
 get_header();
-function get(&$var, $default = null)
-{
+function get( &$var, $default = null ) {
     return isset($var) ? $var : $default;
 }
 
 $category = get_the_category()[0]->slug;
-$thumbnail_sizes = array('showcase' => array(800, 600),
-    'news' => array(125, 125));
+$thumbnail_sizes = array(
+'showcase' => array(800, 600),
+    'news' => array(125, 125),
+);
 $queried_object = get_queried_object();
-if($queried_object->parent->slug == 'faq'){
-    echo "<h1>FAQ child</h1>";
+if ($queried_object->parent->slug == 'faq' ) {
+    echo '<h1>FAQ child</h1>';
 }
 ?>
 
     <div class="main-wrap" role="main">
         <article class="main-content archive">
             <h1 class="entry-title"><?php single_cat_title(); ?></h1>
-            <?php if (have_posts()) : ?>
+            <?php if (have_posts() ) : ?>
                 <?php /* Start the Loop */ ?>
 
 
-                <?php while (have_posts()) : the_post(); ?>
+                <?php while (have_posts() ) : the_post(); ?>
                     <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                         <?php /* Showcase and News */ ?>
                         <div class="category-item clearfix">
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?><a></h3>
-                            <?php if ($category != 'showcase') : ?>
+                            <?php if ($category != 'showcase' ) : ?>
                                 <div class="clearfix byline">
                                     <p class="left">
                                         by <?php the_author(); ?>
@@ -53,10 +54,10 @@ if($queried_object->parent->slug == 'faq'){
                                     </p>
                                 </div>
                             <?php endif; ?>
-                            <?php if (has_post_thumbnail()) : ?>
-                                <div class="post-thumbnail-wrapper <?php if ($category != 'showcase') echo 'left';
+                            <?php if (has_post_thumbnail() ) : ?>
+                                <div class="post-thumbnail-wrapper <?php if ($category != 'showcase' ) { echo 'left';}
                                 echo ' ' . $category ?> thumbnail">
-                                    <?php echo get_the_post_thumbnail(get_the_ID(), get($thumbnail_sizes[$category], array(125, 125))); ?>
+                                    <?php echo get_the_post_thumbnail(get_the_ID(), get($thumbnail_sizes[ $category ], array(125, 125))); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="entry-content">
@@ -73,9 +74,9 @@ if($queried_object->parent->slug == 'faq'){
 
             <?php /* Display navigation to next/previous pages when applicable */ ?>
             <?php
-            if (function_exists('foundationpress_pagination')) :
+            if (function_exists('foundationpress_pagination') ) :
                 foundationpress_pagination();
-            elseif (is_paged()) :
+            elseif (is_paged() ) :
                 ?>
                 <nav id="post-nav">
                     <div class="post-previous"><?php next_posts_link(__('&larr; Older posts', 'foundationpress')); ?></div>

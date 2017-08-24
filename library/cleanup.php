@@ -86,7 +86,7 @@ if ( ! function_exists( 'foundationpress_remove_wp_widget_recent_comments_style'
 function foundationpress_remove_wp_widget_recent_comments_style() {
 		if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
 		  remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
-		}
+			}
 }
 endif;
 
@@ -96,7 +96,7 @@ function foundationpress_remove_recent_comments_style() {
 		global $wp_widget_factory;
 		if ( isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments']) ) {
 		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
-		}
+			}
 }
 endif;
 
@@ -111,21 +111,21 @@ function foundationpress_remove_figure_inline_style( $output, $attr, $content ) 
 		'class'   => '',
 		), $attr, 'caption' );
 
-		$atts['width'] = (int) $atts['width'];
-		if ( $atts['width'] < 1 || empty( $atts['caption'] ) ) {
+			$atts['width'] = (int) $atts['width'];
+			if ( $atts['width'] < 1 || empty( $atts['caption'] ) ) {
 				return $content;
-		}
+			}
 
-		if ( ! empty( $atts['id'] ) ) {
+			if ( ! empty( $atts['id'] ) ) {
 				$atts['id'] = 'id="' . esc_attr( $atts['id'] ) . '" ';
-		}
+			}
 
-		$class = trim( 'wp-caption ' . $atts['align'] . ' ' . $atts['class'] );
+			$class = trim( 'wp-caption ' . $atts['align'] . ' ' . $atts['class'] );
 
-		if ( current_theme_supports( 'html5', 'caption' ) ) {
+			if ( current_theme_supports( 'html5', 'caption' ) ) {
 				return '<figure ' . $atts['id'] . ' class="' . esc_attr( $class ) . '">'
 				. do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $atts['caption'] . '</figcaption></figure>';
-		}
+			}
 
 }
 endif;

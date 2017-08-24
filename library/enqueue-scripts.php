@@ -34,7 +34,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	wp_enqueue_script('d3', 'https://cdnjs.cloudflare.com/ajax/libs/d3/4.9.1/d3.js', array(), '4.9.1', true);
 
-//    wp_enqueue_script('app', get_template_directory_uri() . '/assets/javascript/custom/app.js', array('foundation', 'd3'), '0.0.1', true);
+// wp_enqueue_script('app', get_template_directory_uri() . '/assets/javascript/custom/app.js', array('foundation', 'd3'), '0.0.1', true);
 
     // Icons, Google fonts , etc
 	wp_enqueue_style('material-icons','https://fonts.googleapis.com/icon?family=Material+Icons',array(),'', 'all');
